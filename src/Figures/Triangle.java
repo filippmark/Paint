@@ -1,5 +1,5 @@
 package Figures;
 
-public class Triangle {
+public class Triangle implements BasicFigure{
 
 }

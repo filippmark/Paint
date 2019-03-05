@@ -1,4 +1,4 @@
 package Figures;
 
-public class Square {
+public class Square implements BasicFigure{
 }

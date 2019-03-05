@@ -1,4 +1,4 @@
 package Figures;
 
-public class Ellipse {
+public class Ellipse implements BasicFigure {
 }

@@ -1,4 +1,5 @@
 package Figures;
 
-public class Line {
+public class Line implements BasicFigure {
+
 }

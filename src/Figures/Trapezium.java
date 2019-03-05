@@ -1,4 +1,5 @@
 package Figures;
 
-public class Trapezium {
+public class Trapezium implements BasicFigure{
+
 }
