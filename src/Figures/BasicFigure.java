@@ -2,6 +2,6 @@ package Figures;
 
 import java.awt.*;
 
-public interface BasicFigure {
+public class BasicFigure {
 
 }
