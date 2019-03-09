@@ -1,5 +1,5 @@
 package Figures;
 
-public class Сircle implements BasicFigure{
+public class Сircle{
 
 }

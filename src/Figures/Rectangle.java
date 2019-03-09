@@ -1,4 +1,4 @@
 package Figures;
 
-public class Rectangle implements BasicFigure {
+public class Rectangle  {
 }
