@@ -26,6 +26,8 @@ public class Main extends JPanel{
         JPanel btnpanel = new JPanel();
         btnpanel.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
         btnpanel.add(new LineBtn(shapeDrawer).getBtn());
+        btnpanel.add(new RectangleBtn(shapeDrawer).getBtn());
+        btnpanel.add(new Triangle(shapeDrawer).getBtn());
         btnpanel.add(shapeDrawer.getUndoButton());
 
         container.add(btnpanel, BorderLayout.NORTH);

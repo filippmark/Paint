@@ -18,7 +18,6 @@ public class LineMouseListener extends  FigureMouseListener{
     public void mousePressed(MouseEvent e) {
         line = new Line(new Point(e));
         shapeDrawer.addShape(line);
-       // JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "lol");
     }
 
 
