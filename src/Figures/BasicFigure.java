@@ -2,12 +2,8 @@ package Figures;
 
 import java.awt.*;
 
-public class BasicFigure {
-    private Color color;
-
-    public void BasicFigure(){
-        this.color = Color.RED;
-    }
+public abstract class BasicFigure {
+    private Color color = Color.GREEN;
 
     public Color getColor(){
         return this.color;
@@ -16,4 +12,6 @@ public class BasicFigure {
     public void setColor(Color color){
         this.color = color;
     }
+
+    public abstract void draw(Graphics g);
 }
