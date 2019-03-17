@@ -15,7 +15,7 @@ public class ShapeDrawer extends JPanel {
         setBackground(Color.BLACK);
     }
 
-    private JButton undoButton = new JButton("Отмена");
+    private JButton undoButton = new JButton("Remove last");
     {
         undoButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -25,8 +25,23 @@ public class ShapeDrawer extends JPanel {
         });
     }
 
+    private JButton clearButton = new JButton("Remove all");
+    {
+        clearButton.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                removeAll();
+            }
+        });
+    }
+
     public JButton getUndoButton(){
         return undoButton;
+    }
+
+    public JButton getClearButton() {
+        return clearButton;
     }
 
     public void setMouseListener(MouseAdapter mouseAdapter) {
@@ -55,6 +70,12 @@ public class ShapeDrawer extends JPanel {
 
     public void addShape(BasicFigure f) {
         figures.add(f);
+        repaint();
+    }
+
+    public void removeAll(){
+        if (figures.size() > 0)
+            figures.clear();
         repaint();
     }
 

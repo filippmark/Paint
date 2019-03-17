@@ -28,7 +28,11 @@ public class Main extends JPanel{
         btnpanel.add(new LineBtn(shapeDrawer).getBtn());
         btnpanel.add(new RectangleBtn(shapeDrawer).getBtn());
         btnpanel.add(new Triangle(shapeDrawer).getBtn());
+        btnpanel.add(new SquareBtn(shapeDrawer).getBtn());
+        btnpanel.add(new EllipseBtn(shapeDrawer).getBtn());
+        btnpanel.add(new CircleBtn(shapeDrawer).getBtn());
         btnpanel.add(shapeDrawer.getUndoButton());
+        btnpanel.add(shapeDrawer.getClearButton());
 
         container.add(btnpanel, BorderLayout.NORTH);
         container.add(shapeDrawer,  BorderLayout.CENTER);

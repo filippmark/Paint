@@ -7,14 +7,14 @@ import Figures.Rectangle;
 
 import java.awt.event.MouseEvent;
 
-public class RectangleMouseListener extends LineMouseListener {
+public class RectangleMouseListener extends FigureMouseListener {
     Rectangle rectangle;
 
     public RectangleMouseListener(ShapeDrawer shapeDrawer) {
         super(shapeDrawer);
     }
     public void mousePressed(MouseEvent e) {
-        rectangle = new Rectangle(new Point(e), 1, 1);
+        rectangle = new Rectangle(new Point(e), 2, 1);
         shapeDrawer.addShape(rectangle);
     }
 
