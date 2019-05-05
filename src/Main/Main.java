@@ -1,9 +1,13 @@
 package Main;
 
 import Buttons.*;
+import Figures.UserFigure;
+import MouseListeners.UserFigureMouseListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main{
     static ShapeDrawer shapeDrawer = new ShapeDrawer();
@@ -28,10 +32,31 @@ public class Main{
         btnPanel.add(new CircleBtn(shapeDrawer).getBtn());
         btnPanel.add(shapeDrawer.getUndoButton());
         btnPanel.add(shapeDrawer.getClearButton());
-        btnPanel.add(new CreateFigureBtn(mainFrame, shapeDrawer).getBtn());
+        CreateFigureBtn createFigureBtn = new CreateFigureBtn(mainFrame, shapeDrawer);
+        ComboBoxListener comboBoxListener = new ComboBoxListener(createFigureBtn, shapeDrawer);
+        btnPanel.add(createFigureBtn.getBtn());
+        comboBox.addActionListener(comboBoxListener);
         btnPanel.add(comboBox);
 
         container.add(btnPanel, BorderLayout.NORTH);
         container.add(shapeDrawer,  BorderLayout.CENTER);
+    }
+}
+
+class ComboBoxListener implements ActionListener{
+    ShapeDrawer shapeDrawer;
+    CreateFigureBtn createFigureBtn;
+
+    public ComboBoxListener(CreateFigureBtn createFigureBtn, ShapeDrawer shapeDrawer){
+        this.shapeDrawer = shapeDrawer;
+        this.createFigureBtn = createFigureBtn;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JComboBox box = (JComboBox) e.getSource();
+        String item = (String)box.getSelectedItem();
+        UserFigure userFigure = createFigureBtn.getUserFigures().get(createFigureBtn.getFiguresNames().indexOf(item));
+        shapeDrawer.setMouseListener(new UserFigureMouseListener(shapeDrawer, userFigure));
     }
 }

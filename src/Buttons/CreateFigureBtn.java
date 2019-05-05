@@ -44,8 +44,9 @@ public class CreateFigureBtn extends BasicBtn{
                         if (!temp.equals("")) {
                             if ((figuresNames.size() == 0) || (figuresNames.indexOf(temp) == -1)) {
                                 figuresNames.add(temp);
-                                comboBox.addItem(temp);
                                 UserFigure userFigure = new UserFigure(ShapeDrawer.getFigures() , temp);
+                                userFigures.add(userFigure);
+                                comboBox.addItem(temp);
                             } else {
                                 JOptionPane.showMessageDialog(null, "Choose another name please!");
                             }
@@ -63,6 +64,7 @@ public class CreateFigureBtn extends BasicBtn{
                             if ((figuresNames.size() == 0) || (figuresNames.indexOf(temp) == -1)) {
                                 JOptionPane.showMessageDialog(null, "Choose another name please!");
                             } else {
+                                userFigures.remove(figuresNames.indexOf(temp));
                                 figuresNames.remove(temp);
                                 comboBox.removeItem(temp);
                             }
@@ -85,5 +87,13 @@ public class CreateFigureBtn extends BasicBtn{
                 container.add(btnPanel, BorderLayout.SOUTH);
             }
         });
+    }
+
+    public ArrayList<UserFigure> getUserFigures(){
+        return this.userFigures;
+    }
+
+    public ArrayList<String> getFiguresNames() {
+        return figuresNames;
     }
 }

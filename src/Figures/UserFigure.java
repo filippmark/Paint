@@ -8,14 +8,19 @@ public class UserFigure extends BasicFigure{
     private String name = null;
 
     public  UserFigure(ArrayList<BasicFigure> figures, String name){
-        this.figures = figures;
+        this.figures = (ArrayList) figures.clone();
         this.name = name;
     }
 
     @Override
     public void draw(Graphics g) {
-        for (BasicFigure figure: figures) {
-            figure.draw(g);
+        for (int i = 0; i < figures.size(); i++) {
+            setColor(Color.RED);
+            figures.get(i).draw(g);
         }
+    }
+
+    public ArrayList<BasicFigure> getFigures(){
+        return this.figures;
     }
 }
