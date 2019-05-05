@@ -1,7 +1,6 @@
 package Figures;
 
 import java.awt.*;
-
 public class Ellipse extends BasicFigure{
     private Point fixedPoint, movingPoint;
     public Ellipse(Point topLeft, int width, int height) {

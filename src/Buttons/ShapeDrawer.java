@@ -4,12 +4,13 @@ import Figures.BasicFigure;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ShapeDrawer extends JPanel {
-    private ArrayList <BasicFigure> figures = new ArrayList<BasicFigure>();
+    private static ArrayList <BasicFigure> figures = new ArrayList<BasicFigure>();
     MouseAdapter lastListener = null;
     public ShapeDrawer(){
         setBackground(Color.BLACK);
@@ -17,9 +18,9 @@ public class ShapeDrawer extends JPanel {
 
     private JButton undoButton = new JButton("Remove last");
     {
-        undoButton.addMouseListener(new MouseAdapter() {
+        undoButton.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 removeLast();
             }
         });
@@ -27,10 +28,10 @@ public class ShapeDrawer extends JPanel {
 
     private JButton clearButton = new JButton("Remove all");
     {
-        clearButton.addMouseListener(new MouseAdapter() {
+        clearButton.addActionListener(new ActionListener() {
 
             @Override
-            public void mousePressed(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 removeAll();
             }
         });
@@ -79,5 +80,8 @@ public class ShapeDrawer extends JPanel {
         repaint();
     }
 
+    public static ArrayList <BasicFigure> getFigures(){
+        return figures;
+    }
 
 }
