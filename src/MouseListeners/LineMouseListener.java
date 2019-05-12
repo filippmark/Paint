@@ -4,7 +4,6 @@ import Buttons.ShapeDrawer;
 import Figures.Line;
 import Figures.Point;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 public class LineMouseListener extends  FigureMouseListener{
@@ -23,6 +22,7 @@ public class LineMouseListener extends  FigureMouseListener{
 
     public void mouseDragged(MouseEvent e) {
         line.refreshShape(new Point(e));
+        line.setRefrPoint(new Point(e));
         shapeDrawer.removeLast();
         shapeDrawer.addShape(line);
     }

@@ -12,6 +12,14 @@
       <root url="jar://$PROJECT_DIR$/lib/javax.servlet.jsp.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream-benchmark/src/java" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream-benchmark/src/test" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream-hibernate/src/java" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream-hibernate/src/test" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream-jmh/src/java" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream/src/java" />
+      <root url="file://D:/xstream-distribution-1.4.11.1-src/xstream-1.4.11.1/xstream/src/test" />
+    </SOURCES>
   </library>
 </component>

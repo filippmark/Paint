@@ -1,5 +1,6 @@
 package Buttons;
 
+import Figures.BasicFigure;
 import Figures.UserFigure;
 
 import javax.swing.*;
@@ -14,9 +15,14 @@ public class CreateFigureBtn extends BasicBtn{
     private ArrayList<String> figuresNames = new ArrayList<String>();
     private ArrayList<UserFigure> userFigures = new ArrayList<UserFigure>();
 
+    public CreateFigureBtn(){
+
+    }
     public CreateFigureBtn(JFrame main, ShapeDrawer shapeDrawer){
         super(shapeDrawer);
-        getBtn().setText("User figure");
+        setEngText("User figure");
+        setRusText("Пользовательская фигура");
+        setLanguage(shapeDrawer.getLanguage());
         getBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,7 +38,7 @@ public class CreateFigureBtn extends BasicBtn{
 
 
                 JLabel label = new JLabel();
-                label.setText("Enter name of user figure:");
+                label.setText(shapeDrawer.getLanguage()?"Enter name of user figure:":"Введите имя фигуры:");
 
                 JTextField textField = new JTextField(20);
 
@@ -44,16 +50,19 @@ public class CreateFigureBtn extends BasicBtn{
                         if (!temp.equals("")) {
                             if ((figuresNames.size() == 0) || (figuresNames.indexOf(temp) == -1)) {
                                 figuresNames.add(temp);
-                                UserFigure userFigure = new UserFigure(ShapeDrawer.getFigures() , temp);
+                                ArrayList<BasicFigure> figures = new ArrayList<BasicFigure>();
+                                for(int j = 0; j < ShapeDrawer.getFigures().size(); j++)
+                                    figures.add(ShapeDrawer.getFigures().get(j).clone());
+                                UserFigure userFigure = new UserFigure(figures, temp);
                                 userFigures.add(userFigure);
                                 comboBox.addItem(temp);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Choose another name please!");
+                                JOptionPane.showMessageDialog(null, shapeDrawer.getLanguage()?"Choose another name please!": "Выберите другое имя фигуры!");
                             }
                         }
                     }
                 });
-                buttonAdd.setText("Add");
+                buttonAdd.setText(shapeDrawer.getLanguage()? "Add" : "Добавить");
 
                 JButton buttonDel = new JButton();
                 buttonDel.addActionListener(new ActionListener() {
@@ -62,7 +71,7 @@ public class CreateFigureBtn extends BasicBtn{
                         String temp = textField.getText();
                         if(!temp.equals("")) {
                             if ((figuresNames.size() == 0) || (figuresNames.indexOf(temp) == -1)) {
-                                JOptionPane.showMessageDialog(null, "Choose another name please!");
+                                JOptionPane.showMessageDialog(null, shapeDrawer.getLanguage()?"Choose another name please!": "Выберите другое имя фигуры!");
                             } else {
                                 userFigures.remove(figuresNames.indexOf(temp));
                                 figuresNames.remove(temp);
@@ -71,7 +80,7 @@ public class CreateFigureBtn extends BasicBtn{
                         }
                     }
                 });
-                buttonDel.setText("Delete");
+                buttonDel.setText(shapeDrawer.getLanguage()? "Delete" : "Удалить");
 
 
 
@@ -95,5 +104,16 @@ public class CreateFigureBtn extends BasicBtn{
 
     public ArrayList<String> getFiguresNames() {
         return figuresNames;
+    }
+
+    public void setFiguresNames(ArrayList<String> figuresNames) {
+        this.figuresNames = figuresNames;
+        for (String  item: figuresNames) {
+            comboBox.addItem(item);
+        }
+    }
+
+    public void setUserFigures(ArrayList<UserFigure> userFigures) {
+        this.userFigures = userFigures;
     }
 }

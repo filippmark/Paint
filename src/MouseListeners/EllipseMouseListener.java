@@ -3,7 +3,6 @@ package MouseListeners;
 import Buttons.ShapeDrawer;
 import Figures.Ellipse;
 import Figures.Point;
-import Figures.Triangle;
 
 import java.awt.event.MouseEvent;
 
@@ -22,6 +21,7 @@ public class EllipseMouseListener extends FigureMouseListener {
 
     public void mouseDragged(MouseEvent e) {
         ellipse.refreshShape(new Point(e));
+        ellipse.setRefrPoint(new Point(e));
         shapeDrawer.removeLast();
         shapeDrawer.addShape(ellipse);
     }

@@ -4,7 +4,32 @@ import java.util.ArrayList;
 import java.awt.*;
 
 public class Polyline extends BasicFigure{
-    protected ArrayList<Point> points = new ArrayList<>();
+    private ArrayList<Point> points = new ArrayList<>();
+
+    private Point refrPoint;
+
+    public Polyline(){}
+
+    public Point getRefrPoint() {
+        return refrPoint;
+    }
+
+    @Override
+    public void refreshShape(Point point) {
+
+    }
+
+    public void setRefrPoint(Point refrPoint) {
+        this.refrPoint = refrPoint;
+    }
+
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(ArrayList<Point> points) {
+        this.points = points;
+    }
 
     public void addPoint(Point point){
         points.add(point);

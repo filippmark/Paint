@@ -1,6 +1,5 @@
 package Buttons;
 
-import MouseListeners.RectangleMouseListener;
 import MouseListeners.TriangleMouseListener;
 
 import java.awt.event.ActionEvent;
@@ -10,7 +9,9 @@ public class Triangle extends BasicBtn {
 
     public Triangle(ShapeDrawer shapeDrawer) {
         super(shapeDrawer);
-        getBtn().setText("Triangle");
+        setEngText("Triangle");
+        setRusText("Треугольник");
+        setLanguage(shapeDrawer.getLanguage());
         getBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

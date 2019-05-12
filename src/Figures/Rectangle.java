@@ -1,6 +1,9 @@
 package Figures;
 
 public class Rectangle extends Polygon {
+
+    public Rectangle(){}
+
     public Rectangle(Point topLeft, int width, int height){
         addPoint(new Point(topLeft.x, topLeft.y));
         addPoint(new Point(topLeft.x + width, topLeft.y));
@@ -9,8 +12,10 @@ public class Rectangle extends Polygon {
     }
 
     public void refreshShape(Point point){
-        setPoint(1, new Point(point.x, points.get(0).y));
+        setRefrPoint(point);
+
+        setPoint(1, new Point(point.x, getPoints().get(0).y));
         setPoint(2, point);
-        setPoint(3, new Point(points.get(0).x, point.y));
+        setPoint(3, new Point(getPoints().get(0).x, point.y));
     }
 }

@@ -1,7 +1,6 @@
 package MouseListeners;
 
 import Buttons.ShapeDrawer;
-import Figures.Line;
 import Figures.Point;
 import Figures.Rectangle;
 
@@ -21,6 +20,7 @@ public class RectangleMouseListener extends FigureMouseListener {
 
     public void mouseDragged(MouseEvent e) {
         rectangle.refreshShape(new Point(e));
+        rectangle.setRefrPoint(new Point(e));
         shapeDrawer.removeLast();
         shapeDrawer.addShape(rectangle);
     }

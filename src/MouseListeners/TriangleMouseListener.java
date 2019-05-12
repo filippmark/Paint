@@ -2,11 +2,9 @@ package MouseListeners;
 
 import Buttons.ShapeDrawer;
 import Figures.Point;
-import Figures.Rectangle;
 import Figures.Triangle;
 
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class TriangleMouseListener extends FigureMouseListener {
     Triangle triangle;
@@ -22,6 +20,7 @@ public class TriangleMouseListener extends FigureMouseListener {
 
     public void mouseDragged(MouseEvent e) {
         triangle.refreshShape(new Point(e));
+        triangle.setRefrPoint(new Point(e));
         shapeDrawer.removeLast();
         shapeDrawer.addShape(triangle);
     }

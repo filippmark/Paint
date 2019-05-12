@@ -12,27 +12,41 @@ import java.util.ArrayList;
 public class ShapeDrawer extends JPanel {
     private static ArrayList <BasicFigure> figures = new ArrayList<BasicFigure>();
     MouseAdapter lastListener = null;
+    private boolean language = false;
     public ShapeDrawer(){
         setBackground(Color.BLACK);
     }
 
-    private JButton undoButton = new JButton("Remove last");
+    public void setLanguage(boolean language) {
+        this.language = language;
+        undoButton.setText(language?"Remove last": "Убрать последнюю");
+        clearButton.setText(language?"Remove all": "Убрать всё");
+    }
+
+    public boolean getLanguage() {
+        return language;
+    }
+
+    private JButton undoButton = new JButton(language?"Remove last": "Убрать последнюю");
     {
         undoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeLast();
+                repaint();
             }
         });
+
     }
 
-    private JButton clearButton = new JButton("Remove all");
+    private JButton clearButton = new JButton(language?"Remove all": "Убрать всё");
     {
         clearButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeAll();
+                repaint();
             }
         });
     }
@@ -62,11 +76,12 @@ public class ShapeDrawer extends JPanel {
         }
     }
 
-    public void removeLast(){
+    public BasicFigure removeLast(){
         if (figures.size() > 0) {
-            figures.remove(figures.size() - 1);
+            return figures.remove(figures.size() - 1);
         }
         repaint();
+        return null;
     }
 
     public void addShape(BasicFigure f) {

@@ -20,7 +20,9 @@ public class CircleMouseListener extends FigureMouseListener{
 
 
     public void mouseDragged(MouseEvent e) {
-        circle.refreshShape(new Point(e));
+        Point point = new Point(e);
+        circle.refreshShape(point);
+        circle.setRefrPoint(point);
         shapeDrawer.removeLast();
         shapeDrawer.addShape(circle);
     }

@@ -2,7 +2,6 @@ package MouseListeners;
 
 import Buttons.ShapeDrawer;
 import Figures.Point;
-import Figures.Rectangle;
 import Figures.Square;
 
 import java.awt.event.MouseEvent;
@@ -21,6 +20,7 @@ public class SquareMouseListener extends FigureMouseListener{
 
     public void mouseDragged(MouseEvent e) {
         square.refreshShape(new Point(e));
+        square.setRefrPoint(new Point(e));
         shapeDrawer.removeLast();
         shapeDrawer.addShape(square);
     }
